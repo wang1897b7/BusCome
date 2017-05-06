@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:wheel="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/base_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/action_bar_size"/>
+
+    <!-- content -->
+    <FrameLayout
+        android:id="@+id/base_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/action_bar_size"/>
+
+    <!-- loading -->
+    <ProgressBar
+        android:id="@+id/base_progressbar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:visibility="visible" />
+
+    <!-- error -->
+    <include
+        layout="@layout/layout_base_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"/>
+
+    <!-- empty view -->
+    <include
+        layout="@layout/layout_loading_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
+
+</FrameLayout>

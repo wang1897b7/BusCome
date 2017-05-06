@@ -1,12 +1,13 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'android-apt'
+def dbflow_version = "4.0.0-beta7"
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion Integer.parseInt(COMPILE_SDK)
+    buildToolsVersion BUILD_TOOLS
     defaultConfig {
         applicationId "com.wsd.sun.my_application"
-        minSdkVersion 15
-        targetSdkVersion 25
+        minSdkVersion Integer.parseInt(MIN_SDK)
+        targetSdkVersion Integer.parseInt(TARGET_SDK)
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -17,14 +18,24 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    buildToolsVersion '25.0.0'
 }
 
 dependencies {
+    compile "com.android.support:appcompat-v7:${android_support_version}"
+    compile "com.android.support:recyclerview-v7:${android_support_version}"
+    compile "com.android.support:design:${android_support_version}"
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+    compile "com.jakewharton:butterknife:${butterknife_version}"
+    apt "com.jakewharton:butterknife-compiler:${butterknife_version}"
+    apt "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
+    compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
+    compile "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
+    compile 'com.ashokvarma.android:bottom-navigation-bar:1.2.0'
 }

@@ -1,7 +1,10 @@
-package com.wsd.sun.my_application;
+package com.wsd.sun.my_application.ui;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+import com.wsd.sun.my_application.R;
+
 
 public class MainActivity extends AppCompatActivity {
 
